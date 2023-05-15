@@ -24,7 +24,7 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <ul className='navnar-nav me-auto mb-2' style={{"list-style":"none"}}>
+                    <ul className='navnar-nav me-auto mb-2' style={{"list-style":"none","display":"flex"}}>
                         <li className='nav-item'>
                             <Link className="nav-link fs-6 active" to="/"><span style={{"fontSize":"2rem","margin":"7px 0","color":"white"}}>Home</span></Link>
                         </li>
