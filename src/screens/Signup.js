@@ -8,7 +8,7 @@ export default function Signup() {
     console.log(JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation}))
     const handlesubmit=async (e)=>{
         e.preventDefault();
-        const response =await fetch("https://foodcart.onrender.com/createuser",{
+        const response =await fetch("http://localhost:5000/createuser",{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation})

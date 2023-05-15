@@ -4,9 +4,9 @@ import './index.css';
 import App from './App'
 import {disableReactDevTools} from '@fvilers/disable-react-devtools'
 import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
-require("dotenv").config();
 
-if(process.env.NODE_ENV) disableReactDevTools()
+
+if(1) disableReactDevTools()
 
 
 // import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
