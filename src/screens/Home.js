@@ -3,14 +3,14 @@ import Navbar from '../components/Navbar'
 import './Home.css'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
-
+//  https://foodcart.onrender.com/fooddata
 export default function Home() {
     const [search, setSearch] = useState("")
     const [foodCat, setFoodCat] = useState([])
     const [foodItem, setFoodItem] = useState([])
 
     const loadData = async () => {
-        let response = await fetch("https://foodcart.onrender.com/fooddata", {
+        let response = await fetch("http://localhost:5000/fooddata", {
 
             method: "POST",
             headers: { 'Content-Type': 'application/json' },

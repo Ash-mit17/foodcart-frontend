@@ -5,6 +5,7 @@ import Cart from '../screens/Cart';
 import { useCart } from './ContextReducer';
 
 
+
 export default function Navbar() {
 
     const [cartView,setCartView] = useState(false);
@@ -20,11 +21,11 @@ export default function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
                 <Link className="navbar-brand fs-1 fst-italics" to="/">Comfort Food</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <ul className='navnar-nav me-auto mb-2' style={{"list-style":"none","display":"flex"}}>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className='navnar-nav me-auto mb-2' style={{"listStyle":"none","display":"flex"}}>
                         <li className='nav-item'>
                             <Link className="nav-link fs-6 active" to="/"><span style={{"fontSize":"2rem","margin":"7px 0","color":"white"}}>Home</span></Link>
                         </li>
