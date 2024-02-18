@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
+import baseUrl from '../baseUrl';
 
 export default function Signup() {
     
@@ -8,7 +9,7 @@ export default function Signup() {
     console.log(JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation}))
     const handlesubmit=async (e)=>{
         e.preventDefault();
-        const response =await fetch("https://foodcart.onrender.com/createuser",{
+        const response =await fetch(`${baseUrl}/createuser`,{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation})

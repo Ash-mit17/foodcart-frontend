@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import './Home.css'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
+import baseUrl from '../baseUrl';
 //  https://foodcart.onrender.com/fooddata
 export default function Home() {
     const [search, setSearch] = useState("")
@@ -10,9 +11,9 @@ export default function Home() {
     const [foodItem, setFoodItem] = useState([])
 
     const loadData = async () => {
-        let response = await fetch(" https://foodcart.onrender.com/fooddata", {
+        let response = await fetch(`${baseUrl}/fooddata`, {
 
-            method: "POST",
+            method: "GET",
             headers: { 'Content-Type': 'application/json' },
 
         });
@@ -72,13 +73,13 @@ export default function Home() {
 
             <div className='container' style={{ "margin": "62px 0" }}>
                 {
-                    foodCat !== []
+                    foodCat.length !== 0
                         ? foodCat.map((data) => {
                             return (
                                 <div className='row mb-3'>
                                     <div key={data._id} className='fs-3 m-3'>{data.CategoryName}</div>
                                     <hr />
-                                    {foodItem !== [] ? foodItem.filter((item) =>(item.CategoryName === data.CategoryName) && item.name.toLowerCase().includes(search.toLowerCase()))
+                                    {foodItem.length !== 0 ? foodItem.filter((item) =>(item.CategoryName === data.CategoryName) && item.name.toLowerCase().includes(search.toLowerCase()))
                                         .map(filterItems => {
                                             return (
                                                 <div key={filterItems._id} className='col-12 col-md-6 col-lg-3 mt-5'>

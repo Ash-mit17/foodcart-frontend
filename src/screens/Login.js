@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import baseUrl from '../baseUrl';
 
 export default function Login() {
 
@@ -8,7 +9,7 @@ export default function Login() {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://foodcart.onrender.com/login", {
+    const response = await fetch(`${baseUrl}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: credentials.email, password: credentials.password })

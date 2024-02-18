@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import baseUrl from '../baseUrl';
 
 export default function MyOrder() {
 
@@ -8,7 +9,7 @@ export default function MyOrder() {
 
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-        await fetch("https://foodcart.onrender.com/myOrderData", {
+        await fetch(`${baseUrl}/myOrderData`, {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
             method: 'POST',
@@ -20,7 +21,7 @@ export default function MyOrder() {
             })
         }).then(async (res) => {
             let response = await res.json()
-            await setorderData(response)
+            setorderData(response)
             // console.log(response)
         })
 
@@ -46,7 +47,7 @@ export default function MyOrder() {
             <div className='container'>
                 <div className='row'>
 
-                    {orderData !== {} ? Array(orderData).map(data => {
+                    {orderData.length !==0  ? Array(orderData).map(data => {
                         return (
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
