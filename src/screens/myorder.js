@@ -9,7 +9,7 @@ export default function MyOrder() {
 
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-        await fetch(`${baseUrl}/myOrderData`, {
+        await fetch(`${baseUrl}/data/myOrderData`, {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
             method: 'POST',
@@ -21,15 +21,8 @@ export default function MyOrder() {
             })
         }).then(async (res) => {
             let response = await res.json()
-            setorderData(response)
-            // console.log(response)
+            setorderData(response.data)
         })
-
-
-
-        // await res.map((data)=>{
-        //    console.log(data)
-        // })
 
 
     }

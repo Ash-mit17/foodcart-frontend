@@ -11,22 +11,22 @@ export default function Login() {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${baseUrl}/login`, {
+    const response = await fetch(`${baseUrl}/user/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: credentials.email, password: credentials.password })
     })
 
     const msg = await response.json();
-    // console.log("msg is"+msg.success)
-    if (!msg.success) {
+    if (!response.ok) {
       alert("Enter valid credentials");
     }
+    console.log(msg);
 
     if (msg.success) {
       localStorage.setItem("userEmail", credentials.email)
-      localStorage.setItem("authToken", msg.authToken)
-      localStorage.setItem("username", msg.username)
+      localStorage.setItem("authToken", msg.data.authToken)
+      localStorage.setItem("username", msg.data.username)
       navigate("/");
     }
   }

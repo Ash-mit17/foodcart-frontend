@@ -20,7 +20,7 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch(`${baseUrl}/orderData`, {
+    let response = await fetch(`${baseUrl}/data/orderData`, {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: 'POST',
@@ -33,8 +33,8 @@ export default function Cart() {
         order_date: new Date().toDateString()
       })
     });
-    console.log("JSON RESPONSE:::::", response.status)
-    if (response.status === 200) {
+    console.log("JSON RESPONSE:::::", response)
+    if (response.status === 201) {
       dispatch({ type: "DROP" })
     }
   }

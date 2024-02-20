@@ -16,7 +16,7 @@ export default function Navbar() {
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
-        navigate("/login");
+        navigate("/user/login");
     }
 
     return (
@@ -29,13 +29,13 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className='navnar-nav me-auto mb-2' style={{ "listStyle": "none", "display": "flex" }}>
                         {(localStorage.getItem("authToken")) ? (
-                            <Button className='mt-2' color='secondary' variant='contained' onClick={() => { navigate("/myOrderData") }}>My Orders</Button>)
+                            <Button className='mt-2' color='secondary' variant='contained' onClick={() => { navigate("/data/myOrderData") }}>My Orders</Button>)
                             : ""}
                     </ul>
                     {(!localStorage.getItem("authToken")) ?
                         <><div className='btn bg-white text-info mx-2' onClick={() => { navigate("/"); }}>Home</div><div className='d-flex'>
-                            <Link className="btn bg-white text-success mx-1" to="/login">Login</Link>
-                            <Link className="btn bg-white text-danger mx-1" to="/signup">SignUp</Link>
+                            <Link className="btn bg-white text-success mx-1" to="/user/login">Login</Link>
+                            <Link className="btn bg-white text-danger mx-1" to="/user/signup">SignUp</Link>
                         </div></>
                         :
                         <div>

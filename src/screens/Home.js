@@ -11,16 +11,15 @@ export default function Home() {
     const [foodItem, setFoodItem] = useState([])
 
     const loadData = async () => {
-        let response = await fetch(`${baseUrl}/fooddata`, {
+        let response = await fetch(`${baseUrl}/data/fooddata`, {
 
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
 
         });
         response = await response.json();
-        // console.log(response[0],response[1]);
-        setFoodItem(response[0]);
-        setFoodCat(response[1]);
+        setFoodItem(response.data[0]);
+        setFoodCat(response.data[1]);
     }
 
     useEffect(() => {

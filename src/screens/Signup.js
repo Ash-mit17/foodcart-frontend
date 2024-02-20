@@ -8,10 +8,10 @@ export default function Signup() {
 
     const navigate = useNavigate();
     const [credentials, setcredentials] = useState({ name: "", password: "", email: "", geolocation: "" })
-    console.log(JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation }))
+    // console.log(JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation }))
     const handlesubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`${baseUrl}/signup`, {
+        const response = await fetch(`${baseUrl}/user/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation })
