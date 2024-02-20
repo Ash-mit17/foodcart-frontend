@@ -77,12 +77,13 @@ export default function Home() {
                         ? foodCat.map((data) => {
                             return (
                                 <div className='row mb-3'>
-                                    <div key={data._id} className='fs-3 m-3'>{data.CategoryName}</div>
+                                    <div key={data._id} className='fs-3 m-3'><strong>{data.CategoryName}</strong></div>
                                     <hr />
+                                    <div className='d-flex flex-row flex-wrap'>
                                     {foodItem.length !== 0 ? foodItem.filter((item) =>(item.CategoryName === data.CategoryName) && item.name.toLowerCase().includes(search.toLowerCase()))
                                         .map(filterItems => {
                                             return (
-                                                <div key={filterItems._id} className='col-12 col-md-6 col-lg-3 mt-5'>
+                                                <div key={filterItems._id}>
                                                     <Card
                                                         foodItem={filterItems}
                                                         options={filterItems.options[0]}
@@ -90,6 +91,8 @@ export default function Home() {
                                                 </div>
                                             )
                                         }) : <div>No such data</div>}
+                                    </div>
+                                    
                                 </div>
 
                             )

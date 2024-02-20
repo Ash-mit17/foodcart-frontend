@@ -49,7 +49,7 @@ export default function Cart() {
         <table className='table table-hover '>
           <thead className=' text-success fs-4'>
             <tr>
-              <th scope='col' >#</th>
+              <th scope='col' >Sn</th>
               <th scope='col' >Name</th>
               <th scope='col' >Quantity</th>
               <th scope='col' >Options</th>
@@ -71,7 +71,7 @@ export default function Cart() {
         </table>
         <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div>
         <div>
-          <button className='btn bg-success mt-5 ' onClick={handleCheckOut} > Check Out </button>
+          <button className='btn bg-success mt-5 mb-2 ' onClick={handleCheckOut} > Check Out </button>
         </div>
       </div>
 
