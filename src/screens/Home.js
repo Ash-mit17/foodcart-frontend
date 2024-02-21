@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
+import ResponsiveNavbar from '../components/Navbar'
 import './Home.css'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
 import baseUrl from '../baseUrl';
+import { Skeleton } from '@mui/material'
 //  https://foodcart.onrender.com/fooddata
 export default function Home() {
     const [search, setSearch] = useState("")
@@ -33,7 +34,7 @@ export default function Home() {
     return (
         <div>
             <div>
-                <Navbar />
+                <ResponsiveNavbar />
             </div>
             <div>
                 <div id="demo" className="carousel slide" data-bs-ride="carousel" style={{ "objectFit": "contain", "maxHeight": "500px" }}>
@@ -96,7 +97,7 @@ export default function Home() {
 
                             )
                         })
-                        : <div>""""</div>
+                        : <div><Skeleton variant="rectangular" height={300} /></div>
 
                 }
             </div>
