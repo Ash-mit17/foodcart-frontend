@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
@@ -34,7 +34,7 @@ export default function ResponsiveNavbar() {
               {localStorage.getItem("authToken") ? (
                 <Nav>
                 <Badge className='mx-2 my-1' bg="secondary"><h5>{localStorage.getItem("username")}</h5></Badge>
-                <Nav.Link className='btn bg-white text-danger mx-2 p-1 my-1' onClick={handleLogout}>Logout</Nav.Link>
+                <Link className='btn bg-white text-success mx-2 p-1 my-1' onClick={() => { handleLogout() }}>Logout</Link>
                 <div className='btn bg-white text-success mx-2 p-1 my-1' onClick={() => { setCartView(true) }}>
                                 MyCart{" "}
                         <span class="badge bg-secondary">{data.length}</span>
@@ -43,8 +43,8 @@ export default function ResponsiveNavbar() {
               </Nav>
               ):
               <Nav>
-                <Nav.Link className="btn bg-white text-success mx-1 p-1" onClick={() => navigate("/user/login")}>Login</Nav.Link>
-                <Nav.Link className="btn bg-white text-success mx-1 p-1" onClick={() => navigate("/user/signup")}>SignUp</Nav.Link>
+                <Link className="btn bg-white text-success mx-1 p-1" onClick={() => navigate("/user/login")}>Login</Link>
+                <Link className="btn bg-white text-success mx-1 p-1" onClick={() => navigate("/user/signup")}>SignUp</Link>
               </Nav>
               }
             </Navbar.Collapse>
