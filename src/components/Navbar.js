@@ -34,7 +34,7 @@ export default function ResponsiveNavbar() {
               {localStorage.getItem("authToken") ? (
                 <Nav>
                 <Badge className='mx-2 my-1' bg="secondary"><h5>{localStorage.getItem("username")}</h5></Badge>
-                <Link className='btn bg-white text-success mx-2 p-1 my-1' onClick={() => { handleLogout() }}>Logout</Link>
+                <Button className='btn bg-white text-danger mx-2 p-1 my-1' onClick={() => { handleLogout() }}>Logout</Button>
                 <div className='btn bg-white text-success mx-2 p-1 my-1' onClick={() => { setCartView(true) }}>
                                 MyCart{" "}
                         <span class="badge bg-secondary">{data.length}</span>
@@ -43,8 +43,8 @@ export default function ResponsiveNavbar() {
               </Nav>
               ):
               <Nav>
-                <Link className="btn bg-white text-success mx-1 p-1" onClick={() => navigate("/user/login")}>Login</Link>
-                <Link className="btn bg-white text-success mx-1 p-1" onClick={() => navigate("/user/signup")}>SignUp</Link>
+                <Link className="btn bg-white text-success mx-1 p-1" to={"/user/login"}>Login</Link>
+                <Link className="btn bg-white text-success mx-1 p-1" to={"/user/signup"}>SignUp</Link>
               </Nav>
               }
             </Navbar.Collapse>
