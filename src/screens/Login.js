@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import baseUrl from '../baseUrl';
+import { notifyError, notifyWarning } from '../components/toast';
 
 export default function Login() {
 
@@ -11,23 +12,27 @@ export default function Login() {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${baseUrl}/user/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password })
-    })
-
-    const msg = await response.json();
-    if (!response.ok) {
-      alert("Enter valid credentials");
+    try{
+      const response = await fetch(`${baseUrl}/user/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: credentials.email, password: credentials.password })
+      })
+  
+      const msg = await response.json();
+      if (!response.ok) {
+        notifyWarning("Invalid credentials")
+      }
+  
+      if (msg.success) {
+        localStorage.setItem("userEmail", credentials.email)
+        localStorage.setItem("authToken", msg.data.authToken)
+        localStorage.setItem("username", msg.data.username)
+        navigate("/");
+      }
     }
-    console.log(msg);
-
-    if (msg.success) {
-      localStorage.setItem("userEmail", credentials.email)
-      localStorage.setItem("authToken", msg.data.authToken)
-      localStorage.setItem("username", msg.data.username)
-      navigate("/");
+    catch(error){
+      notifyError(error.message);
     }
   }
 
@@ -55,7 +60,7 @@ export default function Login() {
             </div>
 
             <button type="submit" className="m-3 btn btn-success">Submit</button>
-            <Link to="/signup" className="m-3 btn btn-danger">I am a new user</Link>
+            <Link to="/user/signup" className="m-3 btn btn-danger">I am a new user</Link>
           </form>
         </div>
       </div>

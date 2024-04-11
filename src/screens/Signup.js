@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import baseUrl from '../baseUrl';
+import {  notifySuccess, notifyWarning } from '../components/toast';
 
 export default function Signup() {
 
@@ -19,9 +20,10 @@ export default function Signup() {
 
         const msg = await response.json();
         if (!msg.success) {
-            alert("Enter valid credentials");
+            notifyWarning(msg.message);
         }
         if (msg.success) {
+            notifySuccess(`${msg.message} Please login to continue`);
             navigate("/");
         }
     }
@@ -56,7 +58,7 @@ export default function Signup() {
                             <input type="text" name='geolocation' value={credentials.geolocaton} onChange={onchange} className="form-control" id="exampleInputPassword" placeholder="Address" />
                         </div>
                         <button type="submit" className="m-3 btn btn-success">Submit</button>
-                        <Link to="/login" className="m-3 btn btn-danger">Already a user</Link>
+                        <Link to="/user/login" className="m-3 btn btn-danger">Already a user</Link>
                     </form>
                 </div>
             </div>

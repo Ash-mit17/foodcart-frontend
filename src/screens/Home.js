@@ -32,7 +32,7 @@ export default function Home() {
 
 
     return (
-        <div>
+        <div className='w-100'>
             <div>
                 <ResponsiveNavbar />
             </div>
@@ -71,12 +71,12 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className='container' style={{ "margin": "62px 0" }}>
+            <div className='d-flex flex-wrap' style={{ "margin": "62px 0", width: "100vw" }}>
                 {
                     foodCat.length !== 0
                         ? foodCat.map((data) => {
                             return (
-                                <div className='row mb-3'>
+                                <div className='row mb-3 '>
                                     <div key={data._id} className='fs-3 m-3'><strong>{data.CategoryName}</strong></div>
                                     <hr />
                                     <div className='d-flex flex-row flex-wrap'>

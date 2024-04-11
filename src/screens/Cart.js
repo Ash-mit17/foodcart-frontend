@@ -2,6 +2,7 @@ import React from 'react'
 import Delete from '@material-ui/icons/Delete'
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 import baseUrl from '../baseUrl';
+import { notifySuccess } from '../components/toast';
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -33,7 +34,7 @@ export default function Cart() {
         order_date: new Date().toDateString()
       })
     });
-    console.log("JSON RESPONSE:::::", response)
+    notifySuccess("Order Placed, Thank You!");
     if (response.status === 201) {
       dispatch({ type: "DROP" })
     }
