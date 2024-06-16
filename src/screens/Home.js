@@ -40,8 +40,8 @@ export default function Home() {
                 <div id="demo" className="carousel slide" data-bs-ride="carousel" style={{ "objectFit": "contain", "maxHeight": "500px" }}>
                     <div className='carousel-caption' style={{ "zIndex": "10" }}>
                         <div className="d-flex justify-content-center">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} />
-                           
+                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
+
                         </div>
                     </div>
                     <div className="carousel-indicators">
@@ -52,13 +52,13 @@ export default function Home() {
 
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="https://source.unsplash.com/random/600×500?burger" alt="Los Angeles" className="d-block w-100" height={550} style={{ "objectFit": "cover" }} />
+                            <img src="./1.jpg" alt="Los Angeles" className="d-block w-100" height={550} style={{ "objectFit": "cover" }} />
                         </div>
                         <div className="carousel-item">
-                            <img src="https://source.unsplash.com/random/600×500?pizza" alt="Chicago" className="d-block w-100" height={550} style={{ "objectFit": "cover" }} />
+                            <img src="./2.jpg" alt="Chicago" className="d-block w-100" height={550} style={{ "objectFit": "cover" }} />
                         </div>
                         <div className="carousel-item">
-                            <img src="https://source.unsplash.com/random/600×500?kfc" alt="New York" className="d-block w-100" height={550} style={{ "objectFit": "cover" }} />
+                            <img src="./3.jpg" alt="New York" className="d-block w-100" height={550} style={{ "objectFit": "cover" }} />
                         </div>
                     </div>
 
@@ -80,19 +80,19 @@ export default function Home() {
                                     <div key={data._id} className='fs-3 m-3'><strong>{data.CategoryName}</strong></div>
                                     <hr />
                                     <div className='d-flex flex-row flex-wrap'>
-                                    {foodItem.length !== 0 ? foodItem.filter((item) =>(item.CategoryName === data.CategoryName) && item.name.toLowerCase().includes(search.toLowerCase()))
-                                        .map(filterItems => {
-                                            return (
-                                                <div key={filterItems._id}>
-                                                    <Card
-                                                        foodItem={filterItems}
-                                                        options={filterItems.options[0]}
-                                                    ></Card>
-                                                </div>
-                                            )
-                                        }) : <div>No such data</div>}
+                                        {foodItem.length !== 0 ? foodItem.filter((item) => (item.CategoryName === data.CategoryName) && item.name.toLowerCase().includes(search.toLowerCase()))
+                                            .map(filterItems => {
+                                                return (
+                                                    <div key={filterItems._id}>
+                                                        <Card
+                                                            foodItem={filterItems}
+                                                            options={filterItems.options[0]}
+                                                        ></Card>
+                                                    </div>
+                                                )
+                                            }) : <div>No such data</div>}
                                     </div>
-                                    
+
                                 </div>
 
                             )
