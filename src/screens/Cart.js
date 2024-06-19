@@ -43,42 +43,45 @@ export default function Cart() {
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
 
   return (
-    <div>
+    <div className='container my-5 p-3 bg-white text-black'>
+  <div className='table-responsive'>
+    <table className='table table-hover'>
+      <thead className='text-success fs-4'>
+        <tr>
+          <th scope='col'>Sn</th>
+          <th scope='col'>Name</th>
+          <th scope='col'>Quantity</th>
+          <th scope='col'>Options</th>
+          <th scope='col'>Amount</th>
+          <th scope='col'></th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((food, index) => (
+          <tr key={index}>
+            <th scope='row'>{index + 1}</th>
+            <td>{food.name}</td>
+            <td>{food.qty}</td>
+            <td>{food.size}</td>
+            <td>{food.price}</td>
+            <td>
+              <button type="button" className="btn btn-link p-0" onClick={() => { dispatch({ type: "REMOVE", index: index }) }}>
+                <Delete className='p-0' />
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h1 className='fs-2'>Total Price: {totalPrice}/-</h1>
+  </div>
+  <div>
+    <button className='btn btn-success mt-5 mb-2' onClick={handleCheckOut}>Check Out</button>
+  </div>
+</div>
 
-      {console.log("Data " +data)}
-      <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' style={{"backgroundColor":"white","color":"black"}} >
-        <table className='table table-hover '>
-          <thead className=' text-success fs-4'>
-            <tr>
-              <th scope='col' >Sn</th>
-              <th scope='col' >Name</th>
-              <th scope='col' >Quantity</th>
-              <th scope='col' >Options</th>
-              <th scope='col' >Amount</th>
-              <th scope='col' ></th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((food, index) => (
-              <tr>
-                <th scope='row' >{index + 1}</th>
-                <td >{food.name}</td>
-                <td>{food.qty}</td>
-                <td>{food.size}</td>
-                <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
-            ))}
-          </tbody>
-        </table>
-        <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div>
-        <div>
-          <button className='btn bg-success mt-5 mb-2 ' onClick={handleCheckOut} > Check Out </button>
-        </div>
-      </div>
-
-
-
-    </div>
   )
 }
 

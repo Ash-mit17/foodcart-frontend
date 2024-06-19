@@ -8,6 +8,8 @@ import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 
@@ -18,7 +20,7 @@ export default function ResponsiveNavbar() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem("authToken");
+        localStorage.clear();
         navigate("/user/login");
     }
     return (
@@ -34,9 +36,9 @@ export default function ResponsiveNavbar() {
               {localStorage.getItem("authToken") ? (
                 <Nav>
                 <Badge className='mx-2 my-1' bg="secondary"><h5>{localStorage.getItem("username")}</h5></Badge>
-                <Button className='btn bg-white text-danger mx-2 p-1 my-1' onClick={() => { handleLogout() }}>Logout</Button>
+                <Button className='btn bg-white text-danger mx-1 p-1 my-1' onClick={() => { handleLogout() }}><LogoutIcon /></Button>
                 <div className='btn bg-white text-success mx-2 p-1 my-1' onClick={() => { setCartView(true) }}>
-                                MyCart{" "}
+                                <ShoppingCartIcon />
                         <span class="badge bg-secondary">{data.length}</span>
                 </div>
                 {cartView ? <Modal onClose={() => { setCartView(false) }}><Cart></Cart></Modal> : null}

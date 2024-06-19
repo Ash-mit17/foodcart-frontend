@@ -29,8 +29,6 @@ export default function Home() {
 
 
 
-
-
     return (
         <div className='w-100'>
             <div>
@@ -71,7 +69,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className='d-flex flex-wrap' style={{ "margin": "62px 0", width: "100vw" }}>
+            <div className='mx-5 my-5 d-flex flex-wrap' style={{ "margin": "62px 0", width: "100vw" }}>
                 {
                     foodCat.length !== 0
                         ? foodCat.map((data) => {
