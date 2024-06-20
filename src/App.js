@@ -4,6 +4,7 @@ import Login from './screens/Login';
 import Signup from './screens/Signup';
 import { CartProvider } from './components/ContextReducer';
 import MyOrder from './screens/myorder';
+import DefaultLayout from './screens/DefaultLayout';
 
 function App() {
   return (
@@ -11,10 +12,10 @@ function App() {
       <div>
         <Router>
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path='/user/login' element={<Login/>} />
-            <Route path='/user/signup' element={<Signup/>}/>
-            <Route path='/data/myOrderData' element={<MyOrder/>}/>
+            <Route path="/" element={<DefaultLayout><Home/></DefaultLayout>} />
+            <Route path='/user/login' element={<DefaultLayout><Login/></DefaultLayout>} />
+            <Route path='/user/signup' element={<DefaultLayout><Signup/></DefaultLayout>}/>
+            <Route path='/data/myOrderData' element={<DefaultLayout><MyOrder/></DefaultLayout>}/>
           </Routes>
         </Router>
       </div>
