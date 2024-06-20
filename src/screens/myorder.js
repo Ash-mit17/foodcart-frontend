@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 import baseUrl from '../baseUrl';
 
 export default function MyOrder() {
@@ -16,8 +14,8 @@ export default function MyOrder() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
-                email:localStorage.getItem('userEmail')
+            body: JSON.stringify({
+                email: localStorage.getItem('userEmail')
             })
         }).then(async (res) => {
             let response = await res.json()
@@ -35,8 +33,7 @@ export default function MyOrder() {
         <div>
             <div className='container'>
                 <div className='row'>
-
-                    {orderData.length !==0  ? Array(orderData).map(data => {
+                    {orderData.length !== 0 && Array(orderData).map(data => {
                         return (
                             data.orderData ?
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
@@ -78,7 +75,8 @@ export default function MyOrder() {
                                     )
                                 }) : ""
                         )
-                    }) : ""}
+                    })}
+                    {!orderData?.orderData?.email && <h1 className='text-center mt-4'>No Orders Yet</h1>}
                 </div>
 
 

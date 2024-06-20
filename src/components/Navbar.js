@@ -31,7 +31,7 @@ export default function ResponsiveNavbar() {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Button className='btn bg-white text-success mx-1 p-1 ' variant='contained' onClick={() => { navigate("/") }}>Home</Button>
-                {localStorage.getItem("authToken") && <Button className='mt-2 mx-1 p-1' color='secondary' variant='contained' onClick={() => { navigate("/data/myOrderData") }}>My Orders</Button>}
+                {localStorage.getItem("authToken") && <Button className='btn bg-white text-success mx-1 p-1 ' variant='contained' onClick={() => { navigate("/data/myOrderData") }}>My Orders</Button>}
               </Nav>
               {localStorage.getItem("authToken") ? (
                 <Nav>
