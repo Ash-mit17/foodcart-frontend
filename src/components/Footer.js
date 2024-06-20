@@ -8,7 +8,7 @@ export default function Footer() {
     <div className='fixed bottom-0'><div className="container">
     <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <div className="col-md-4 d-flex align-items-center">
-        <span className="text-muted">© 2022 <i>GoFood</i>, Inc</span>
+        <span className="text-muted">© 2022 <i>ComfortFood</i>, Inc</span>
       </div>
   
       <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
