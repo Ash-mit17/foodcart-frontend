@@ -83,11 +83,13 @@ export default function Home() {
                                     <div className='col-md-4 mb-3' key={filterItems._id}>
                                         <Card foodItem={filterItems} options={filterItems.options[0]} />
                                     </div>
-                                )) : <div className='col-12'><p>No such data</p></div>}
+                                )) : <div className='col-12'><p>No item found</p></div>}
                             </div>
                         </div>
                     );
-                }) : <Skeleton variant="rectangular" height={300} />}
+                }) :<><p>Backend on render cloud plese wait ...</p>
+                        <Skeleton variant="rectangular" height={300} />
+                    </>}
             </div>
         </div>
     )

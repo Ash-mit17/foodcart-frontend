@@ -1,5 +1,6 @@
 import React, { useEffect,useRef,useState } from 'react'
 import { useCart,useDispatchCart } from './ContextReducer';
+import {notifyWarning} from '../components/toast';
 
 export default function Card(props) {
     let data = useCart();
@@ -10,6 +11,11 @@ export default function Card(props) {
     const[qty,setQty] = useState(1)
     const[size,setSize] = useState("")
     const handleAddtoCart = async ()=>{
+
+        if (localStorage.length === 0) {
+            notifyWarning("Please login/signup to add items to cart");
+            return;
+        }
 
         let food=[]
         for(const item of data){
