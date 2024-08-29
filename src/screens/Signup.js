@@ -35,7 +35,7 @@ export default function Signup() {
         <div className="d-flex justify-content-center align-items-center vh-100">
             <div className="border p-4 shadow-sm bg-white rounded" style={{ maxWidth: '400px', width: '100%' }}>
                 <form onSubmit={handlesubmit}>
-                    <h1 className="text-center mb-4">Sign Up</h1>
+                    <h1 className="text-center mb-4 text-dark">Sign Up</h1>
                     <hr />
                     <div className="form-group mb-3">
                         <label htmlFor="name">Name</label>

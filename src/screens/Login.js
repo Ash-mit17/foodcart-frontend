@@ -44,7 +44,7 @@ export default function Login() {
     <div className="d-flex justify-content-center mt-5 align-items-center">
       <div className="border p-4 shadow-sm bg-white rounded" style={{ maxWidth: '400px', width: '100%' }}>
         <form onSubmit={handlesubmit}>
-          <h1 className="text-center mb-4">Login</h1>
+          <h1 className="text-center mb-4 text-dark">Login</h1>
           <hr />
           <div className="form-group mb-3">
             <label htmlFor="exampleInputEmail1">Email address</label>

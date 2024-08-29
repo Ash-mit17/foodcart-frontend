@@ -60,10 +60,10 @@ export default function Cart() {
         {data.map((food, index) => (
           <tr key={index}>
             <th scope='row'>{index + 1}</th>
-            <td>{food.name}</td>
-            <td>{food.qty}</td>
-            <td>{food.size}</td>
-            <td>{food.price}</td>
+            <td className='text-dark'>{food.name}</td>
+            <td className='text-dark'>{food.qty}</td>
+            <td className='text-dark'>{food.size}</td>
+            <td className='text-dark'>{food.price}</td>
             <td>
               <button type="button" className="btn btn-link p-0" onClick={() => { dispatch({ type: "REMOVE", index: index }) }}>
                 <Delete className='p-0' />
